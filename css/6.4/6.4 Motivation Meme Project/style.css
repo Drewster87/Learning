@@ -1,0 +1,14 @@
+html {
+    padding: 40px 0px;
+    background-color: black;
+}
+
+body {
+    color: white;
+    text-align: center;
+}
+
+img {
+    border: 5px solid white;
+    align-content: center;
+}
