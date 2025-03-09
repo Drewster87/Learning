@@ -19,11 +19,104 @@
     HINT: Remember you can't change the properties of grid lines.
     But grid lines are transparent!
     */
+    body {
+      display: flex;
+      justify-content: center;
+      height: 100vh;
+      align-items: center;
+    }
+
+    .container {
+      height: 748px;
+      width: 748px;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      grid-template-rows: 414px 1fr;
+      gap: 9px 9px;
+      background-color: black;
+    }
+
+    .red {
+      background-color: #E72F24;
+    }
+
+    .white-item {
+      background-color: #F0F1EC;
+    }
+
+    .white {
+      grid-area: 1 / 2 / 2 / 3
+    }
+
+    .container2 {
+      grid-area: 2 / 1 / 3 / 2;
+      display: grid;
+      grid-template-rows: 296px 1fr;
+      gap: 9px;
+    }
+
+    .white3 {
+      grid-area: 2 / 1 / 3 / 2;
+    }
+
+    .container3 {
+      grid-area: 2 / 2 / 3 / 3;
+      display: grid;
+      gap: 9px;
+      grid-template-rows: 296px 20px;
+      grid-template-columns: 360px 1fr;
+    }
+
+    .container4 {
+      grid-area: 1 / 2 / 3 / 3;
+      display: grid;
+      gap: 10px;
+      grid-template-rows: 130px 1fr;
+    }
+
+    .blue {
+      background-color: #004592;
+    }
+
+    .container5 {
+      grid-area: 2 / 1 / 3 / 2;
+      display: grid;
+      grid-template-columns: 198px 1fr;
+      gap: 9px;
+    }
+
+    .yellow {
+      background-color: #F9D01E;
+    }
+
+    .grey {
+      background-color: #232629;
+      grid-area: 1 / 2 / 2/ 3;
+    }
   </style>
 </head>
 
 <body>
   <!-- Write your HTML here -->
+  <div class="container">
+    <div class="red"></div>
+    <div class="white white-item"></div>
+    <div class="container2">
+      <div class="white-item"></div>
+      <div class="white3 white-item"></div>
+    </div>
+    <div class="container3">
+      <div class="white-item"></div>
+      <div class="container4">
+        <div class="blue"></div>
+        <div class="white5 white-item"></div>
+      </div>
+      <div class="container5">
+        <div class="yellow"></div>
+        <div class="grey"></div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
