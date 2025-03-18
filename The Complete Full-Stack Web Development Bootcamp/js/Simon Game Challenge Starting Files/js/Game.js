@@ -115,7 +115,7 @@ export class Game {
     async _nextTurn() {
         this._playerTurnRef.playerTurn = false;
         this._numTurns += 1;
-        this._timeoutRef.timeout = 1000 - Math.floor(this._numTurns / 5) * 500;
+        this._timeoutRef.timeout = 1000 - Math.floor(this._numTurns / 5) * 200;
         if (this._timeoutRef.timeout < 100) {
             this._timeoutRef = 100;
         }
