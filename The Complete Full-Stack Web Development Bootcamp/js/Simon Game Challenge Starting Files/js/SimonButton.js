@@ -17,18 +17,18 @@ export class SimonButton extends EventTarget {
         this._button = button;
         /** @type {PlayerTurnRef} */
         this._playerTurn = playerTurn;
-        /** @type {Number} */
+        /** @type {TimeoutRef} */
         this._timeout = timeout;
 
         this._setupButton();
     }
 
     _setupButton() {
-        this.button.addEventListener('click', () => this.clickEventHandler())
+        this._button.addEventListener('click', () => this._clickEventHandler())
     }
 
     _clickEventHandler() {
-        if (this.playerTurn.playerTurn) {
+        if (this._playerTurn.playerTurn) {
             const event = new CustomEvent('buttonClicked', {
                 detail: {
                     button: this,
@@ -39,14 +39,22 @@ export class SimonButton extends EventTarget {
         }
     }
 
-    play() {
-        let audio = new Audio(this.audioPath);
+    async play() {
+        let audio = new Audio(this._audioPath);
         audio.play();
-        this.button.classList.add("pressed");
-        setTimeout(() => this._stop(), this.timeout);
+        this._button.classList.remove("pressed");
+        await this._delay(10);
+        this._button.classList.add("pressed");
+        await this._delay(this._timeout.timeout);
+        this._stop();
+        await this._delay(50);
     }
 
     _stop() {
-        this.button.classList.remove("pressed");
+        this._button.classList.remove("pressed");
+    }
+
+    _delay(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
     }
 }
