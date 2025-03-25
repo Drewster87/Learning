@@ -1,4 +1,4 @@
-export function Square(value: {
+export default function Square(value: {
   value: string | null;
   onSquareClick: () => void;
 }) {
