@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Square } from "./Square";
+import Square from "./Square";
 
-export function Board() {
+export default function Board() {
   const [xIsNext, setXIsNext] = useState<boolean>(true);
   const [squares, setSquares] = useState<string[]>(Array(9).fill(null));
 
@@ -10,7 +10,7 @@ export function Board() {
       return;
     }
 
-    let nextSquares = squares.slice();
+    const nextSquares = squares.slice();
     if (xIsNext) {
       nextSquares[i] = "X";
     } else {
